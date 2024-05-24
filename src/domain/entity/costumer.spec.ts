@@ -39,17 +39,18 @@ describe("Costumer unit test", () => {
 
     }); 
 
-    // it("should throw error when address is undefined when you activate a customer", () => {
-    //     expect(() => {
-    //       const customer = new Customer("1", "Customer 1");
-    //       customer.activate();
-    //     }).toThrowError("Address is mandatory to activate a customer");
+    it("should throw error when address is undefined when you activate a customer", () => {
+        // expect(() => {
+        //   const customer = new Customer("1", "Customer 1");
+        //   customer.activate();
+        // }).toThrowError("Address is mandatory to activate a customer");
 
-    //     // let customer = new Customer("1", "Cust 01"); 
-    //     // let address = new Address("Street 1", 123, '04195120', 'São Paulo'); 
-    //     // customer.Address = address; 
-    //     // customer.activate();
+        // let customer = new Customer("1", "Cust 01"); 
+        // let address = new Address("Street 1", 123, '04195120', 'São Paulo'); 
+        // customer.Address = address; 
+        // customer.activate();
 
-    //     // expect(customer.Address).not.toBe(undefined); 
-    // });
+        // expect(customer.Address).not.toBe(undefined); 
+    });
+    
 }); 
