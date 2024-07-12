@@ -52,9 +52,9 @@ describe("Order Repository Test", () => {
 
         const orderItem = new OrderItem(
             "1", 
-            product.id, 
-            product.name, 
+            product.name,             
             product.price, 
+            product.id,             
             2
         );
 
