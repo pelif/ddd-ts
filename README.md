@@ -9,6 +9,7 @@ This project is a sample application that implements the DDD and Clean Architect
 - TypeScript
 - Sequelize
 - Node.js
+- Express
 - Jest
 
 
