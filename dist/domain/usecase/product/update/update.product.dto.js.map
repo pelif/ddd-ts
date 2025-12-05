@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../../src/domain/usecase/product/update/update.product.dto.ts"],"sourcesContent":["export interface InputUpdateProductDto {\n    id: string;\n    name: string;\n    price: number;\n}\n\nexport interface OutputUpdateProductDto {\n    id: string;\n    name: string;\n    price: number;\n}   "],"names":[],"mappings":"AAMA,WAIC"}

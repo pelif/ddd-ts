@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../src/domain/product/entity/product.interface.ts"],"sourcesContent":["export default interface ProductInterface {    \n    get id(): string;\n    get name(): string;\n    get price(): number;\n}"],"names":[],"mappings":"AAAA,WAIC"}

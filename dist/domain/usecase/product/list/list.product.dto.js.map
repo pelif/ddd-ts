@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../../src/domain/usecase/product/list/list.product.dto.ts"],"sourcesContent":["export interface InputListProductDto { }\n\ntype Product = {\n    id: string;\n    name: string;\n    price: number;\n}\n\nexport interface OutputListProductDto {\n    products: Product[];\n}\n\n"],"names":[],"mappings":"AAQA,WAEC"}

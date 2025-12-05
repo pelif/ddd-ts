@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../../src/domain/usecase/product/find/find.product.dto.ts"],"sourcesContent":["export interface InputFindProductDto {\n    id: string;\n}\n\nexport interface OutputFindProductDto {\n    id: string;\n    name: string;\n    price: number;\n}"],"names":[],"mappings":"AAIA,WAIC"}

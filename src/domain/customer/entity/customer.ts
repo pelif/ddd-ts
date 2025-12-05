@@ -1,61 +1,74 @@
+import Entity from "../../@shared/entity/entity.abstract";
+import NotificationError from "../../@shared/notification/notification.error";
 import Address from "../value-object/address";
 
-export default class Customer {
-    
-    private _id: string;
-    private _name: string; 
+export default class Customer extends Entity {
+
+    private _name: string;
     private _address!: Address;
-    private _active: boolean = true; 
+    private _active: boolean = true;
     private _rewardPoints: number = 0;
 
     constructor(id: string, name: string) {
+        super();
         this._id = id;
-        this._name = name;        
+        this._name = name;
         this.validate();
-    }
 
-    get id(): string {
-        return this._id; 
+        if (this.notification.hasErrors())
+            throw new NotificationError(this.notification.getErrors());
     }
 
     get name(): string {
-        return this._name; 
+        return this._name;
     }
 
     get rewardPoints(): number {
-        return this._rewardPoints; 
+        return this._rewardPoints;
     }
 
     get address(): Address {
-        return this._address; 
+        return this._address;
     }
 
     isActive(): boolean {
-        return this._active; 
+        return this._active;
     }
 
     validate() {
         if (this._name.length === 0) {
-            throw new Error("Name is required"); 
+            this.notification.addError({
+                context: "customer",
+                message: "Name is required"
+            });
         }
 
-        if(this._id.length === 0) {
-            throw new Error("Id is required"); 
+        if (this._id.length === 0) {
+            this.notification.addError({
+                context: "customer",
+                message: "Id is required"
+            });
         }
     }
 
     changeName(name: string) {
-        this._name = name; 
+        this._name = name;
         this.validate();
     }
 
     changeAddress(address: Address) {
-        this._address = address; 
+        this._address = address;
     }
 
-    activate() {
-        if(this._address === undefined) {
-            throw new Error("Address is Mandatory to activate a customer"); 
+    activate(): void {
+        if (this._address === undefined) {
+            this.notification.addError({
+                context: "customer",
+                message: "Address is Mandatory to activate a customer"
+            });
+        }
+        if (this.notification.hasErrors()) {
+            throw new NotificationError(this.notification.getErrors());
         }
         this._active = true;
     }
@@ -65,7 +78,7 @@ export default class Customer {
     }
 
     addRewardPoints(points: number): void {
-        this._rewardPoints += points; 
+        this._rewardPoints += points;
     }
 
     set address(address: Address) {

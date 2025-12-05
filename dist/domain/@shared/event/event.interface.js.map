@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../src/domain/@shared/event/event.interface.ts"],"sourcesContent":["export default interface EventInterface {\n    dateTimeOccurred: Date; \n    eventData: any; \n}"],"names":[],"mappings":"AAAA,WAGC"}

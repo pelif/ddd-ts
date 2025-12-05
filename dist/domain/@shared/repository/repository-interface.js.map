@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../src/domain/@shared/repository/repository-interface.ts"],"sourcesContent":["export default interface RepositoryInterface<T> {\n    create(entity: T): Promise<void>;\n    update(entity: T): Promise<void>; \n    find(id: string): Promise<T>;\n    findAll(): Promise<T[]>; \n}"],"names":[],"mappings":"AAAA,WAKC"}

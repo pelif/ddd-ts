@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../src/domain/checkout/repository/order-repository.interface.ts"],"sourcesContent":["import Order from \"../entity/order\";\nimport RepositoryInterface from \"../../@shared/repository/repository-interface\";\n\nexport default interface OrderRepositoryInterface extends RepositoryInterface<Order> {}"],"names":[],"mappings":"AAGA,WAAuF"}

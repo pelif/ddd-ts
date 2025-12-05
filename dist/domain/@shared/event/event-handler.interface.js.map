@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../src/domain/@shared/event/event-handler.interface.ts"],"sourcesContent":["import EventInterface from \"./event.interface\";\n\nexport default interface EventHandlerInterface<T extends EventInterface=EventInterface> {\n    handle(event: T): void;\n}"],"names":[],"mappings":"AAEA,WAEC"}
