@@ -6,5 +6,6 @@ export default class NotificationError extends Error {
         super(
             errors.map(error => `${error.context}: ${error.message}`).join(",")
         );
-    }   
+    }
+
 }   

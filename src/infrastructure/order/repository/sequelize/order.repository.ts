@@ -1,5 +1,4 @@
-import OrderModel from "./order.model";
-import OrderItemModel from "./order-item";
+import { OrderModel, OrderItemModel } from "./order.model";
 import Order from "../../../../domain/checkout/entity/order";
 
 export default class OrderRepository {

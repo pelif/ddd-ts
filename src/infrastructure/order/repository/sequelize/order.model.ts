@@ -1,37 +1,68 @@
 import {
   Table,
-  Model, 
-  PrimaryKey, 
-  Column, 
-  ForeignKey, 
-  BelongsTo, 
+  Model,
+  PrimaryKey,
+  Column,
+  ForeignKey,
+  BelongsTo,
   HasMany
 } from "sequelize-typescript";
 
 import CustomerModel from "../../../customer/repository/sequelize/customer.model";
-import OrderItemModel from "./order-item";
-
+import ProductModel from "../../../product/repository/sequelize/product.model";
 
 @Table({
-    tableName: "orders", 
-    timestamps: false,
+  tableName: "orders",
+  timestamps: false,
 })
+export class OrderModel extends Model {
+  @PrimaryKey
+  @Column
+  declare id: string;
 
-export default class OrderModel extends Model {
-    @PrimaryKey
-    @Column
-    declare id: string; 
+  @ForeignKey(() => CustomerModel)
+  @Column({ allowNull: false })
+  declare customer_id: string;
 
-    @ForeignKey(() => CustomerModel)
-    @Column({ allowNull: false })
-    declare customer_id: string; 
-    
-    @BelongsTo(() => CustomerModel)
-    declare customer: CustomerModel;
+  @BelongsTo(() => CustomerModel)
+  declare customer: CustomerModel;
 
-    @HasMany(() => OrderItemModel)
-    declare items: OrderItemModel[];
-    
-    @Column({ allowNull: false })
-    declare total: number;
+  @HasMany(() => OrderItemModel)
+  declare items: OrderItemModel[];
+
+  @Column({ allowNull: false })
+  declare total: number;
+}
+
+@Table({
+  tableName: "orders_items",
+  timestamps: false,
+})
+export class OrderItemModel extends Model {
+  @PrimaryKey
+  @Column
+  declare id: string;
+
+  @ForeignKey(() => ProductModel)
+  @Column({ allowNull: false })
+  declare product_id: string;
+
+  @BelongsTo(() => ProductModel)
+  declare product: ProductModel;
+
+  @ForeignKey(() => OrderModel)
+  @Column({ allowNull: false })
+  declare order_id: string;
+
+  @BelongsTo(() => OrderModel)
+  declare order: OrderModel;
+
+  @Column({ allowNull: false })
+  declare name: string;
+
+  @Column({ allowNull: false })
+  declare quantity: number;
+
+  @Column({ allowNull: false })
+  declare price: number;
 }
