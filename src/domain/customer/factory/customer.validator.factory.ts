@@ -1,9 +1,9 @@
 import ValidatorInterface from "../../@shared/validator/validator.interface";
 import Customer from "../entity/customer";
-import CustomerYupValidataor from "../validator/customer.yup.validator";
+import CustomerYupValidator from "../validator/customer.yup.validator";
 
 export default class CustomerValidatorFactory {
     static create(): ValidatorInterface<Customer> {
-        return new CustomerYupValidataor();
+        return new CustomerYupValidator();
     }
 }
