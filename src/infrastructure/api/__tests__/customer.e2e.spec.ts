@@ -99,5 +99,18 @@ describe("E2E test for Customer", () => {
         expect(customer2.address.number).toBe(2);
         expect(customer2.address.city).toBe("City 2");
         expect(customer2.address.zip).toBe("12345678");
+
+
+        const listResponseXML = await request(app)
+            .get('/customer')
+            .set('Accept', 'application/xml')
+            .send();
+
+        expect(listResponseXML.status).toBe(200);
+        expect(listResponseXML.text).toContain(`<?xml version="1.0" encoding="UTF-8"?>`);
+
+
+
+
     });
 }); 
